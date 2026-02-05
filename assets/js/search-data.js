@@ -447,7 +447,7 @@ ninja.data = [{
         title: 'CV',
         section: 'Socials',
         handler: () => {
-          window.open("/assets/pdf/example_pdf.pdf", "_blank");
+          window.open("/assets/pdf/Junho_Park_Curriculum_Vitae%20(4).pdf", "_blank");
         },
       },{
         id: 'social-email',
