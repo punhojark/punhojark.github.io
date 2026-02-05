@@ -28,3 +28,18 @@ I am a **Ph.D. student at the University of Michigan**'s Electrical & Comptuer E
 Previously, I completed my undergraduate degrees at the **University of California, Berkeley** in **Electrical Engineering & Computer Science** and **Materials Science & Engineering (EECS Honors)**. I have industry experience as a **Materials Engineering Intern at Apple**, **Software Engineering Intern at Amazon Web Services**, and **Modeling & Characterization Intern at STMicroelectronics**. My publications are available on [Google Scholar](https://scholar.google.com/citations?user=tbpvUyIAAAAJ&hl=en).
 
 **Info:** [junhop@umich.edu](mailto:junhop@umich.edu) · [LinkedIn](https://www.linkedin.com/in/junhop/) · [Google Scholar](https://scholar.google.com/citations?user=tbpvUyIAAAAJ&hl=en)
+
+
+<div style="margin-top: 10px;">
+  <a href="/assets/pdf/Junho_Park_Curriculum_Vitae (4).pdf" target="_blank">
+    <i class="ai ai-cv ai-2x"></i>
+  </a>
+
+  <a href="mailto:junhop@umich.edu">
+    <i class="fas fa-envelope ai-2x"></i>
+  </a>
+
+  <a href="https://scholar.google.com/citations?user=tbpvUyIAAAAJ&hl=en" target="_blank">
+    <i class="ai ai-google-scholar ai-2x"></i>
+  </a>
+</div>
