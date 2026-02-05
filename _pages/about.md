@@ -30,7 +30,7 @@ Previously, I completed my undergraduate degrees at the **University of Californ
 **Info:** [junhop@umich.edu](mailto:junhop@umich.edu) · [LinkedIn](https://www.linkedin.com/in/junhop/)
 
 
-<div style="margin-top: 10px;">
+<div style="margin-top: 20px;">
   <a href="/assets/pdf/Junho_Park_Curriculum_Vitae (4).pdf" target="_blank">
     <i class="ai ai-cv ai-2x"></i>
   </a>
