@@ -27,4 +27,4 @@ I am a **Ph.D. student at the University of Michigan**'s Electrical & Comptuer E
 
 Previously, I completed my undergraduate degrees at the **University of California, Berkeley** in **Electrical Engineering & Computer Science** and **Materials Science & Engineering (EECS Honors)**. I have industry experience as a **Materials Engineering Intern at Apple**, **Software Engineering Intern at Amazon Web Services**, and **Modeling & Characterization Intern at STMicroelectronics**. My publications are available on [Google Scholar](https://scholar.google.com/citations?user=tbpvUyIAAAAJ&hl=en).
 
-**Contact:** [junhop@umich.edu](mailto:junhop@umich.edu) · [LinkedIn](https://www.linkedin.com/in/junhop/)
+**Info:** [junhop@umich.edu](mailto:junhop@umich.edu) · [LinkedIn](https://www.linkedin.com/in/junhop/) · [Google Scholar](https://scholar.google.com/citations?user=tbpvUyIAAAAJ&hl=en)
