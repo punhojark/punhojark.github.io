@@ -1,6 +1,3 @@
-- date_label: Fellowship
-  content: >
-    I received the **NSF Graduate Research Fellowship**, supporting my research in AI for integrated photonics.
 - date_label: Jul 2026
   content: >
     **Two papers accepted for oral presentations at IEEE IPC 2026!** I'll be in **Denver, November 8–12**,
@@ -13,4 +10,7 @@
     [Read the paper](https://doi.org/10.1063/5.0327107).
 - date_label: May 2026
   content: >
-    I attended **CLEO 2026 in Long Beach** to present our research on integrated photonics.
+    At **CLEO 2026 in Charlotte, NC**, we presented two papers: [interpretable inverse design via pixel-level sensitivity](https://opg.optica.org/abstract.cfm?uri=CLEO_FS-2026-JW1.130) and [etch-free III-nitride photonics via bottom-up selective-area growth](https://opg.optica.org/abstract.cfm?uri=CLEO_SI-2026-STH4E.6).
+- date_label: Apr 2026
+  content: >
+    I received the **NSF Graduate Research Fellowship**, supporting my research in AI for integrated photonics.
