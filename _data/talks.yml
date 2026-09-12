@@ -1,3 +1,15 @@
+- title: "Connecting Chips with Light: Silicon Photonics and AI Data Centers' Next Bottleneck"
+  venue: AI Frontier · Episode 108
+  format: Podcast
+  date: 2026-08-08
+  authors: Junho Park, Taehan Kim, Chester Roh (serial entrepreneur), and Jinwon Lee (HyperAccel CTO)
+  summary: A conversation about silicon photonics and AI infrastructure, including optical interconnects, generative models, inverse design, and agentic design tools.
+  url: https://aifrontier.kr/en/episodes/ep108/
+  links:
+    - label: Watch on YouTube
+      url: https://www.youtube.com/watch?v=Z6sltgRAkWU
+    - label: Episode page & transcript
+      url: https://aifrontier.kr/en/episodes/ep108/
 - title: Generative Priors Accelerate Inverse Design for Regularized, High Performance Integrated Photonics
   venue: ICML 2026 Workshop on AI for Physics
   format: Poster

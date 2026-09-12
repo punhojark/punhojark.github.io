@@ -480,10 +480,17 @@ footer.sticky-bottom .container {
 }
 
 .post-date,
+.post-byline,
 .talk-details {
   font-size: 0.8125rem;
   color: var(--global-text-color-light);
   margin-bottom: 10px;
+}
+
+.talk-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
 }
 
 .post-excerpt,
