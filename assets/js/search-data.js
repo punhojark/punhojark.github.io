@@ -16,6 +16,20 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-talks-amp-presentations",
+          title: "Talks &amp; presentations",
+          description: "Workshop presentations and posters.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
+          },
+        },{id: "nav-blog",
+          title: "Blog",
+          description: "Writing on AI, research, technology, and everyday questions.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
         },{
         id: 'social-cv',
         title: 'CV',
