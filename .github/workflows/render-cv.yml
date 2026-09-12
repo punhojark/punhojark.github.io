@@ -19,13 +19,53 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check for CV content changes
+        id: cv_inputs
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          pip install pyyaml
+          python - <<'PY'
+          import os
+          import pathlib
+          import subprocess
+          import yaml
+
+          changed = os.environ["EVENT_NAME"] != "push"
+          if not changed:
+              for path in [
+                  "_data/cv.yml",
+                  "assets/rendercv/design.yaml",
+                  "assets/rendercv/locale.yaml",
+                  "assets/rendercv/settings.yaml",
+              ]:
+                  before = subprocess.run(
+                      ["git", "show", f"{os.environ['BEFORE_SHA']}:{path}"],
+                      capture_output=True, text=True,
+                  )
+                  current = pathlib.Path(path)
+                  if before.returncode != 0 or not current.exists():
+                      changed = True
+                      break
+                  if yaml.safe_load(before.stdout) != yaml.safe_load(current.read_text()):
+                      changed = True
+                      break
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"changed={str(changed).lower()}\n")
+          print("CV content changed." if changed else "Only formatting changed; keeping the existing CV output.")
+          PY
       - name: Install RenderCV
+        if: steps.cv_inputs.outputs.changed == 'true'
         run: |
           pip install -r requirements.txt
       - name: RenderCV
+        if: steps.cv_inputs.outputs.changed == 'true'
         run: |
           cv_file=$(find _data  -maxdepth 1 -type f \( -name "cv.yaml" -o -name "cv.yml" \))
           if [ -z "$cv_file" ]; then
@@ -45,11 +85,13 @@ jobs:
           rendercv render $cv_file --settings $settings
           rm assets/rendercv/rendercv_output/*.typ
       - name: Upload rendercv_output as an artifact
+        if: steps.cv_inputs.outputs.changed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: RenderCV Output
           path: assets/rendercv/rendercv_output
       - name: Push the changes
+        if: steps.cv_inputs.outputs.changed == 'true'
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
