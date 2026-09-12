@@ -8,7 +8,7 @@ nav_order: 4
 ---
 
 <div class="blog-intro">
-  <p>I write on Medium in English and Korean. Here are my latest posts.</p>
+  <p>I write on Medium in English and Korean. Browse recent posts and earlier writing below.</p>
   <a href="{{ site.medium_blog.profile_url }}">All writing on Medium <span aria-hidden="true">→</span></a>
 </div>
 <div class="medium-post-list">

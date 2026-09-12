@@ -58,7 +58,11 @@ module MediumFeed
       posts = MediumFeed.posts(response.body, limit: config.fetch('limit', 10).to_i.clamp(1, 20))
       raise 'Feed contains no usable posts' if posts.empty?
 
-      site.data['medium_posts'] = { 'posts' => posts }
+      # Medium's RSS feed only includes recent posts; retain our older entries.
+      archived = site.data.dig('medium_posts', 'posts') || []
+      combined = (posts + archived).uniq { |post| post['url'] }
+      combined.sort_by! { |post| post['date'] }.reverse!
+      site.data['medium_posts'] = { 'posts' => combined }
       Jekyll.logger.info 'Medium feed:', "Loaded #{posts.length} recent posts"
     rescue StandardError => error
       # The checked-in snapshot keeps the page useful during feed outages.
