@@ -4,12 +4,12 @@ layout: default
 <div class="academic-home">
   <section class="profile-intro" aria-labelledby="profile-name">
     <div class="profile-copy">
-      <p class="eyebrow">Integrated photonics & inverse design</p>
+      <p class="eyebrow">AI for photonics & integrated photonic design</p>
       <h1 id="profile-name">
         {{ site.first_name }}
         {{ site.last_name }}
       </h1>
-      <p class="profile-role">Ph.D. student <span aria-hidden="true">/</span> University of Michigan</p>
+      <p class="profile-role">Ph.D. student <span aria-hidden="true">/</span> NSF GRFP Fellow</p>
       <div class="bio">{{ content }}</div>
       <nav class="profile-links" aria-label="Contact and academic profiles">
         <a href="mailto:{{ site.data.socials.email }}">Email</a>
@@ -32,6 +32,20 @@ layout: default
       >
       <p>Ann Arbor, Michigan</p>
     </div>
+  </section>
+
+  <section class="recent-news" aria-labelledby="news-title">
+    <div class="section-heading">
+      <h2 id="news-title">News</h2>
+    </div>
+    <ul class="news-list">
+      {% for item in site.data.recent_news %}
+        <li>
+          <span class="news-date">{{ item.date_label }}</span>
+          <div>{{ item.content | markdownify }}</div>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
 
   {% if page.selected_papers %}

@@ -1,0 +1,16 @@
+- title: Generative Priors Accelerate Inverse Design for Regularized, High Performance Integrated Photonics
+  venue: ICML 2026 Workshop on AI for Physics
+  format: Poster
+  date: 2026-07-11
+  location: Seoul, South Korea
+  authors: Taehan Kim, Junho Park, Mohammad Ali, SooHyuk Cho, and Di Liang
+  url: https://openreview.net/forum?id=4rgtkoCNnA
+  event_url: https://ai4physics-workshop.github.io/
+- title: Towards Explainable Inverse Design for Photonics via Integrated Gradients
+  venue: AAAI 2026 Workshop on XAI4Science
+  format: Poster
+  date: 2026-01-27
+  location: Singapore
+  authors: Junho Park*, Taehan Kim*, and Sangdae Nam
+  url: https://arxiv.org/abs/2510.22176v1
+  event_url: https://xai4science.github.io/index-aaai2026.html

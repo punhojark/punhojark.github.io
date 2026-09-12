@@ -164,6 +164,47 @@ input:focus-visible {
   padding-top: 34px;
 }
 
+.recent-news {
+  border-top: 1px solid var(--global-divider-color);
+  padding: 32px 0 38px;
+}
+
+.recent-news h2 {
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  margin-bottom: 22px;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-list li {
+  display: grid;
+  grid-template-columns: 94px minmax(0, 1fr);
+  gap: 18px;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin-top: 18px;
+}
+
+.news-list p {
+  margin: 0;
+}
+
+.news-date {
+  padding-top: 2px;
+  color: var(--global-text-color-light);
+  font-size: 0.8125rem;
+}
+
+.news-list strong {
+  font-weight: 600;
+}
+
 .section-heading {
   display: flex;
   align-items: end;
@@ -256,6 +297,21 @@ input:focus-visible {
 
 .publication-row-text {
   grid-template-columns: minmax(0, 1fr);
+}
+
+.publication-image {
+  margin: 0;
+}
+
+.publication-image figcaption {
+  margin-top: 8px;
+  color: var(--global-text-color-light);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+}
+
+.publication-image figcaption p {
+  margin: 0;
 }
 
 .publication-image img {
@@ -377,6 +433,73 @@ footer.sticky-bottom .container {
   color: var(--global-footer-text-color);
 }
 
+.blog-intro,
+.medium-post-list,
+.talk-list {
+  max-width: 760px;
+}
+
+.blog-intro {
+  padding: 8px 0 28px;
+}
+
+.blog-intro p {
+  margin-bottom: 6px;
+}
+
+.blog-intro > a,
+.text-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.medium-post,
+.talk-entry {
+  border-top: 1px solid var(--global-divider-color);
+  padding: 28px 0 32px;
+}
+
+.medium-post h2,
+.talk-entry h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.medium-post h2 a,
+.talk-entry h2 a {
+  color: var(--global-text-color);
+}
+
+.medium-post h2 a:hover,
+.talk-entry h2 a:hover {
+  color: var(--global-theme-color);
+}
+
+.post-date,
+.talk-details {
+  font-size: 0.8125rem;
+  color: var(--global-text-color-light);
+  margin-bottom: 10px;
+}
+
+.post-excerpt,
+.talk-authors {
+  font-size: 0.9375rem;
+  color: var(--global-text-color-light);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.medium-post[lang="ko"] h2,
+.medium-post[lang="ko"] .post-excerpt {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 767px) {
   .profile-intro {
     grid-template-columns: minmax(0, 1fr) 160px;
@@ -445,6 +568,12 @@ footer.sticky-bottom .container {
 
   .section-heading h2 {
     font-size: 1.625rem;
+  }
+
+  .news-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    margin-top: 22px;
   }
 
   .publication-row {

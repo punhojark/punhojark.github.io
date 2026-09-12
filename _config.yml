@@ -9,11 +9,11 @@ last_name: Park
 contact_note: >
   Get in touch at junhop@umich.edu.
 description: >
-  Junho Park is a Ph.D. student at the University of Michigan working on integrated photonics, inverse design, and machine learning.
+  Junho Park is an NSF GRFP Fellow and Ph.D. student at the University of Michigan, advised by Di Liang. His research spans AI for photonics, agentic PIC design, and inverse design for integrated photonics.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: Junho Park, integrated photonics, silicon photonics, inverse design, machine learning # add your own keywords or leave empty
+keywords: Junho Park, AI for photonics, agentic PIC design, integrated photonics, inverse design, NSF GRFP, Di Liang # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -90,14 +90,14 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: Junho Park
+blog_description: Writing on AI, research, technology, and everyday questions.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
-  enabled: true
+  enabled: false
 
 related_blog_posts:
   enabled: true
@@ -128,6 +128,12 @@ disqus_shortname: al-folio # put your disqus shortname
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
 external_sources: []
+
+medium_blog:
+  enabled: true
+  feed_url: https://medium.com/feed/@parkjunho0624
+  profile_url: https://medium.com/@parkjunho0624
+  limit: 10
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -189,7 +195,6 @@ exclude:
   - package.json
   - package-lock.json
   - _pages/about_einstein.md
-  - _pages/blog.md
   - _pages/books.md
   - _pages/dropdown.md
   - _pages/news.md
@@ -346,6 +351,7 @@ filtered_bibtex_keywords:
     poster,
     preview,
     preview_alt,
+    preview_credit,
     presentation,
     sort_order,
     summary,

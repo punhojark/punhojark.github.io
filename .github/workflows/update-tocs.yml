@@ -43,6 +43,14 @@ jobs:
           done
           rm gh-md-toc
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Format generated tables of contents
+        run: |
+          npm ci
+          npx prettier '*.md' --write
+
       - name: Commit changes
         if: steps.changed-files.outputs.any_changed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5.0.1
