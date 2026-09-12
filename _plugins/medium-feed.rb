@@ -6,6 +6,15 @@ require 'uri'
 
 # Keep short, plain-text previews here; the articles stay on Medium.
 module MediumFeed
+  def self.section_for(post)
+    return post['section'] if %w[photonics-ai life].include?(post['section'])
+
+    # Use the author's title and tags for new RSS entries; saved choices take precedence.
+    topic = ([post['title']] + Array(post['tags'])).join(' ')
+    technology = /\b(ai|artificial intelligence|machine learning|deep learning|llms?|gpus?|semiconductors?|optical computing|data centers?)\b|photonics|chatgpt|인공지능|포토닉스|실리콘 포토닉|광자|광학/i
+    topic.match?(technology) ? 'photonics-ai' : 'life'
+  end
+
   def self.posts(xml, limit: 10)
     document = Nokogiri::XML(xml) { |config| config.strict.nonet }
     raise 'Unexpected feed format' unless document.at_xpath('/rss/channel')
@@ -35,6 +44,7 @@ module MediumFeed
         'url' => url.to_s,
         'date' => Time.parse(item.at_xpath('pubDate')&.text.to_s).utc.strftime('%Y-%m-%d'),
         'excerpt' => excerpt,
+        'tags' => item.xpath('category').map(&:text),
         'language' => title.match?(/[가-힣]/) ? 'ko' : 'en'
       }
     rescue ArgumentError, URI::InvalidURIError
@@ -60,7 +70,10 @@ module MediumFeed
 
       # Medium's RSS feed only includes recent posts; retain our older entries.
       archived = site.data.dig('medium_posts', 'posts') || []
+      saved = archived.to_h { |post| [post['url'], post] }
+      posts = posts.map { |post| (saved[post['url']] || {}).merge(post) }
       combined = (posts + archived).uniq { |post| post['url'] }
+      combined.each { |post| post['section'] = MediumFeed.section_for(post) }
       combined.sort_by! { |post| post['date'] }.reverse!
       site.data['medium_posts'] = { 'posts' => combined }
       Jekyll.logger.info 'Medium feed:', "Loaded #{posts.length} recent posts"

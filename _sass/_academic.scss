@@ -447,6 +447,37 @@ footer.sticky-bottom .container {
   margin-bottom: 6px;
 }
 
+.blog-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 24px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.writing-section {
+  padding-top: 16px;
+  scroll-margin-top: 100px;
+}
+
+.writing-section + .writing-section {
+  margin-top: 32px;
+}
+
+.writing-section > h2 {
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  margin-bottom: 8px;
+}
+
+.writing-section-description {
+  color: var(--global-text-color-light);
+  font-size: 0.9375rem;
+  margin-bottom: 24px;
+}
+
 .blog-intro > a,
 .text-link {
   font-size: 0.875rem;
@@ -459,7 +490,7 @@ footer.sticky-bottom .container {
   padding: 28px 0 32px;
 }
 
-.medium-post h2,
+.medium-post h3,
 .talk-entry h2 {
   font-size: 1.375rem;
   font-weight: 600;
@@ -469,12 +500,12 @@ footer.sticky-bottom .container {
   overflow-wrap: anywhere;
 }
 
-.medium-post h2 a,
+.medium-post h3 a,
 .talk-entry h2 a {
   color: var(--global-text-color);
 }
 
-.medium-post h2 a:hover,
+.medium-post h3 a:hover,
 .talk-entry h2 a:hover {
   color: var(--global-theme-color);
 }
@@ -501,7 +532,7 @@ footer.sticky-bottom .container {
   margin-bottom: 12px;
 }
 
-.medium-post[lang="ko"] h2,
+.medium-post[lang="ko"] h3,
 .medium-post[lang="ko"] .post-excerpt {
   word-break: keep-all;
   overflow-wrap: anywhere;
