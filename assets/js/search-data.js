@@ -16,16 +16,16 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-talks-amp-presentations",
-          title: "Talks &amp; presentations",
+        },{id: "nav-talks",
+          title: "Talks",
           description: "Podcasts, workshop presentations, and posters.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/talks/";
           },
-        },{id: "nav-blog",
-          title: "Blog",
-          description: "Writing on AI, research, technology, and everyday questions.",
+        },{id: "nav-writing",
+          title: "Writing",
+          description: "Essays in English and Korean.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
