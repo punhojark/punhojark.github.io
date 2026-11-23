@@ -1,0 +1,23 @@
+{% if site.enable_publication_thumbnails and entry.preview %}
+  <figure class="publication-image">
+    {% if entry.preview contains '://' %}
+      {% assign preview_url = entry.preview %}
+    {% else %}
+      {% assign preview_url = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
+    {% endif %}
+    <picture>
+      {% if site.imagemagick.enabled and entry.preview contains '.png' %}
+        {% assign preview_stem = entry.preview | remove: '.png' | prepend: '/assets/img/publication_preview/' %}
+        <source
+          type="image/webp"
+          srcset="{{ preview_stem | append: '-480.webp' | relative_url }} 480w, {{ preview_stem | append: '-800.webp' | relative_url }} 800w"
+          sizes="{{ include.sizes }}"
+        >
+      {% endif %}
+      <img src="{{ preview_url }}" alt="{{ entry.preview_alt | default: entry.title | escape }}" loading="lazy" width="600" height="400">
+    </picture>
+    {% if entry.preview_credit %}
+      <figcaption>{{ entry.preview_credit | markdownify }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}

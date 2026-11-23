@@ -8,10 +8,5 @@ if (searchTheme === "dark") {
 }
 
 const openSearchModal = () => {
-  // collapse navbarNav if expanded on mobile
-  const $navbarNav = $("#navbarNav");
-  if ($navbarNav.hasClass("show")) {
-    $navbarNav.collapse("hide");
-  }
   ninjaKeys.open();
 };

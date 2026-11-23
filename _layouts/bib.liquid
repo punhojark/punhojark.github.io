@@ -1,29 +1,7 @@
 ---
 ---
 <div class="row publication-row {% unless entry.preview %}publication-row-text{% endunless %}">
-  {% if site.enable_publication_thumbnails and entry.preview %}
-    <figure class="publication-image">
-      {% if entry.preview contains '://' %}
-        {% assign preview_url = entry.preview %}
-      {% else %}
-        {% assign preview_url = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
-      {% endif %}
-      <picture>
-        {% if site.imagemagick.enabled and entry.preview contains '.png' %}
-          {% assign preview_stem = entry.preview | remove: '.png' | prepend: '/assets/img/publication_preview/' %}
-          <source
-            type="image/webp"
-            srcset="{{ preview_stem | append: '-480.webp' | relative_url }} 480w, {{ preview_stem | append: '-800.webp' | relative_url }} 800w"
-            sizes="(max-width: 575px) 300px, 218px"
-          >
-        {% endif %}
-        <img src="{{ preview_url }}" alt="{{ entry.preview_alt | default: entry.title | escape }}" loading="lazy" width="600" height="400">
-      </picture>
-      {% if entry.preview_credit %}
-        <figcaption>{{ entry.preview_credit | markdownify }}</figcaption>
-      {% endif %}
-    </figure>
-  {% endif %}
+  {% include publication_image.liquid sizes="(max-width: 575px) 300px, 218px" %}
   <div id="{{ entry.key }}" class="publication-content">
     <div class="publication-meta">
       {% if entry.abbr -%}
@@ -38,7 +16,9 @@
     </div>
     <h3 class="title">
       {% if entry.html -%}
-        <a href="{{ entry.html }}">{{ entry.title }}</a>
+        <a href="{% if entry.html contains '://' %}{{ entry.html }}{% else %}{{ entry.html | prepend: '/assets/html/' | relative_url }}{% endif %}">
+          {{- entry.title -}}
+        </a>
       {%- else -%}
         {{- entry.title -}}
       {%- endif %}
@@ -182,7 +162,10 @@
     </div>
 
     {% if entry.summary %}
-      <p class="publication-summary">{{ entry.summary }}</p>
+      <details class="publication-summary">
+        <summary>Summary</summary>
+        <p>{{ entry.summary }}</p>
+      </details>
     {% endif %}
     <!-- Links/Buttons -->
     <div class="links">
@@ -203,13 +186,6 @@
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-      {% endif %}
-      {% if entry.html %}
-        {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
-        {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
-        {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}

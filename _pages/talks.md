@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Talks & presentations
-nav_title: Talks
+title: Talks
 permalink: /talks/
 description: Podcasts, workshop presentations, and posters.
 nav: true
@@ -19,10 +18,11 @@ nav_order: 3
     <h2><a href="{{ talk.url }}">{{ talk.title }}</a></h2>
     <p class="talk-authors">{{ talk.authors }}</p>
     <p class="talk-details"><time datetime="{{ talk.date | date: '%Y-%m-%d' }}">{{ talk.date | date: '%B %-d, %Y' }}</time>{% if talk.location %} · {{ talk.location }}{% endif %}</p>
-    {% if talk.summary %}<p class="post-excerpt">{{ talk.summary }}</p>{% endif %}
     <div class="talk-links">
     {% if talk.links %}
-      {% for link in talk.links %}<a class="text-link" href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+      {% for link in talk.links %}
+        {% unless link.url == talk.url %}<a class="text-link" href="{{ link.url }}">{{ link.label }}</a>{% endunless %}
+      {% endfor %}
     {% else %}
       <a class="text-link" href="{{ talk.event_url }}">Workshop details</a>
     {% endif %}

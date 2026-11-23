@@ -4,18 +4,17 @@ layout: default
 <div class="academic-home">
   <section class="profile-intro" aria-labelledby="profile-name">
     <div class="profile-copy">
-      <p class="eyebrow">AI for photonics & integrated photonic design</p>
       <h1 id="profile-name">
         {{ site.first_name }}
         {{ site.last_name }}
       </h1>
-      <p class="profile-role">Second-year Ph.D. student <span aria-hidden="true">/</span> NSF GRFP Fellow</p>
+      <p class="profile-role">{{ page.role | escape }}</p>
       <div class="bio">{{ content }}</div>
       <nav class="profile-links" aria-label="Contact and academic profiles">
-        <a href="mailto:{{ site.data.socials.email }}">Email</a>
+        <a class="profile-email" href="mailto:{{ site.data.socials.email }}">Email me</a>
+        <a href="{{ site.data.socials.cv_pdf | relative_url }}" aria-label="CV (PDF)">CV</a>
         <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}">Google Scholar</a>
         <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/">LinkedIn</a>
-        <a href="{{ site.data.socials.cv_pdf | relative_url }}">CV <span class="link-format">PDF</span></a>
       </nav>
     </div>
     <div class="profile-portrait">
@@ -26,18 +25,25 @@ layout: default
         height="900"
         {% if site.imagemagick.enabled %}
           srcset="{{ '/assets/img/prof_pic-480.webp' | relative_url }} 480w, {{ '/assets/img/prof_pic-800.webp' | relative_url }} 800w"
-          sizes="(max-width: 575px) 108px, (max-width: 767px) 160px, 218px"
+          sizes="(max-width: 575px) 86px, (max-width: 767px) 150px, 190px"
         {% endif %}
         fetchpriority="high"
       >
-      <p>Ann Arbor, Michigan</p>
     </div>
   </section>
 
+  {% if page.selected_papers %}
+    <section class="selected-research" aria-labelledby="selected-title">
+      <div class="section-heading">
+        <h2 id="selected-title">Selected publications</h2>
+        <a class="all-publications" href="{{ '/publications/' | relative_url }}">All publications</a>
+      </div>
+      {% include selected_papers.liquid %}
+    </section>
+  {% endif %}
+
   <section class="recent-news" aria-labelledby="news-title">
-    <div class="section-heading">
-      <h2 id="news-title">News</h2>
-    </div>
+    <h2 id="news-title">News</h2>
     <ul class="news-list">
       {% for item in site.data.recent_news %}
         <li>
@@ -47,18 +53,4 @@ layout: default
       {% endfor %}
     </ul>
   </section>
-
-  {% if page.selected_papers %}
-    <section class="selected-research" aria-labelledby="selected-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Research</p>
-          <h2 id="selected-title">Selected publications</h2>
-        </div>
-        <a class="all-publications" href="{{ '/publications/' | relative_url }}">All publications <span aria-hidden="true">→</span></a>
-      </div>
-      {% include selected_papers.liquid %}
-      <p class="contribution-note">* Equal contribution.</p>
-    </section>
-  {% endif %}
 </div>

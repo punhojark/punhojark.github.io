@@ -1,0 +1,25 @@
+---
+---
+<article class="featured-paper">
+  {% include publication_image.liquid sizes="(max-width: 575px) 88px, 148px" %}
+  <div>
+    <p class="paper-venue">{{ entry.abbr | default: entry.journal | default: entry.booktitle }} · {{ entry.year }}</p>
+    <h3>
+      {% if entry.html %}
+        <a href="{% if entry.html contains '://' %}{{ entry.html }}{% else %}{{ entry.html | prepend: '/assets/html/' | relative_url }}{% endif %}">
+          {{- entry.title -}}
+        </a>
+      {% elsif entry.pdf %}
+        <a href="{% if entry.pdf contains '://' %}{{ entry.pdf }}{% else %}{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}{% endif %}">
+          {{- entry.title -}}
+          <span class="sr-only"> (PDF)</span></a
+        >
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </h3>
+    {% if entry.award -%}
+      <span class="distinction">{{ entry.award }}</span>
+    {%- endif %}
+  </div>
+</article>
