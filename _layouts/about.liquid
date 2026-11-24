@@ -1,23 +1,10 @@
 ---
 layout: default
 ---
+<a class="sr-only sr-only-focusable" href="#about-title">Skip to about and research</a>
 <div class="academic-home">
-  <section class="profile-intro" aria-labelledby="profile-name">
-    <div class="profile-copy">
-      <h1 id="profile-name">
-        {{ site.first_name }}
-        {{ site.last_name }}
-      </h1>
-      <p class="profile-role">{{ page.role | escape }}</p>
-      <div class="bio">{{ content }}</div>
-      <nav class="profile-links" aria-label="Contact and academic profiles">
-        <a class="profile-email" href="mailto:{{ site.data.socials.email }}">Email me</a>
-        <a href="{{ site.data.socials.cv_pdf | relative_url }}" aria-label="CV (PDF)">CV</a>
-        <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/">LinkedIn</a>
-      </nav>
-    </div>
-    <div class="profile-portrait">
+  <aside class="profile-sidebar" aria-labelledby="profile-name">
+    <div class="profile-identity">
       <img
         src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}"
         alt="Portrait of Junho Park"
@@ -25,32 +12,56 @@ layout: default
         height="900"
         {% if site.imagemagick.enabled %}
           srcset="{{ '/assets/img/prof_pic-480.webp' | relative_url }} 480w, {{ '/assets/img/prof_pic-800.webp' | relative_url }} 800w"
-          sizes="(max-width: 575px) 86px, (max-width: 767px) 150px, 190px"
+          sizes="(max-width: 767px) 96px, 180px"
         {% endif %}
         fetchpriority="high"
       >
-    </div>
-  </section>
-
-  {% if page.selected_papers %}
-    <section class="selected-research" aria-labelledby="selected-title">
-      <div class="section-heading">
-        <h2 id="selected-title">Selected publications</h2>
-        <a class="all-publications" href="{{ '/publications/' | relative_url }}">All publications</a>
+      <div>
+        <h1 id="profile-name">
+          {{ site.first_name }}
+          {{ site.last_name }}
+        </h1>
+        <p class="profile-role">
+          {{ page.role | escape -}}
+          <br>
+          {{ page.affiliation | escape }}
+        </p>
+        <a class="profile-email" href="mailto:{{ site.data.socials.email }}">{{ site.data.socials.email }}</a>
       </div>
-      {% include selected_papers.liquid %}
+    </div>
+    <nav class="profile-links" aria-label="Academic and professional profiles">
+      <a href="{{ site.data.socials.cv_pdf | relative_url }}" aria-label="CV (PDF)">CV</a>
+      <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/">LinkedIn</a>
+    </nav>
+    {% include header.liquid sidebar=true %}
+  </aside>
+  <div class="home-content">
+    <section class="bio" aria-labelledby="about-title">
+      <h2 id="about-title" tabindex="-1">About me</h2>
+      {{ content }}
     </section>
-  {% endif %}
 
-  <section class="recent-news" aria-labelledby="news-title">
-    <h2 id="news-title">News</h2>
-    <ul class="news-list">
-      {% for item in site.data.recent_news %}
-        <li>
-          <span class="news-date">{{ item.date_label }}</span>
-          <div>{{ item.content | markdownify }}</div>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
+    {% if page.selected_papers %}
+      <section class="selected-research" aria-labelledby="selected-title">
+        <div class="section-heading">
+          <h2 id="selected-title">Selected publications</h2>
+          <a class="all-publications" href="{{ '/publications/' | relative_url }}">All publications</a>
+        </div>
+        {% include selected_papers.liquid %}
+      </section>
+    {% endif %}
+
+    <section class="recent-news" aria-labelledby="news-title">
+      <h2 id="news-title">News</h2>
+      <ul class="news-list">
+        {% for item in site.data.recent_news %}
+          <li>
+            <span class="news-date">{{ item.date_label }}</span>
+            <div>{{ item.content | markdownify }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
 </div>

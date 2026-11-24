@@ -5,7 +5,8 @@ permalink: /
 description: Junho Park is an NSF GRFP Fellow and second-year Ph.D. student at the University of Michigan, advised by Di Liang, working on AI for photonics, agentic PIC design, and integrated photonic inverse design.
 profile:
   image: prof_pic.jpg
-role: Ph.D. student at the University of Michigan
+role: Ph.D. student
+affiliation: University of Michigan
 selected_papers: true
 ---
 

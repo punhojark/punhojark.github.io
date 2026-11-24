@@ -2,21 +2,23 @@
   <!-- Nav Bar -->
   <nav
     id="navbar"
-    class="navbar navbar-light navbar-expand {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}"
+    class="{% if include.sidebar %}profile-navigation{% else %}navbar navbar-light navbar-expand {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}{% endif %}"
     aria-label="Main navigation"
   >
-    <div class="container">
-      <a
-        class="navbar-brand"
-        aria-label="{{ site.first_name }} {{ site.last_name }} home"
-        {% if page.permalink == '/' %}
-          aria-current="page"
-        {% endif %}
-        href="{{ '/' | relative_url }}"
-      >
-        {{- site.first_name }}
-        {{ site.last_name -}}
-      </a>
+    <div class="{% if include.sidebar %}profile-menu{% else %}container{% endif %}">
+      {% unless include.sidebar %}
+        <a
+          class="navbar-brand"
+          aria-label="{{ site.first_name }} {{ site.last_name }} home"
+          {% if page.permalink == '/' %}
+            aria-current="page"
+          {% endif %}
+          href="{{ '/' | relative_url }}"
+        >
+          {{- site.first_name }}
+          {{ site.last_name -}}
+        </a>
+      {% endunless %}
       <div class="site-navigation">
         <ul class="navbar-nav">
           <!-- Other pages -->

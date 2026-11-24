@@ -100,31 +100,109 @@ input:focus-visible {
   transform: none !important;
 }
 
-.profile-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-  align-items: center;
-  gap: clamp(30px, 7vw, 96px);
-  padding: 20px 0 50px;
+.home-container {
+  margin-top: clamp(2rem, 5vw, 4.5rem);
 }
 
-.profile-intro h1 {
-  font-size: clamp(2.75rem, 5.4vw, 4rem);
+.academic-home {
+  display: grid;
+  grid-template-columns: clamp(200px, 20vw, 240px) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.profile-sidebar {
+  min-width: 0;
+}
+
+@media (min-width: 768px) and (min-height: 650px) {
+  .profile-sidebar {
+    position: sticky;
+    top: 32px;
+  }
+}
+
+.profile-identity img {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 8%;
+  border-radius: 6px;
+}
+
+.profile-identity h1 {
+  margin: 20px 0 6px;
+  font-size: 2.125rem;
+  line-height: 1.12;
   font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 1.05;
-  margin: 0 0 8px;
+  letter-spacing: -0.045em;
 }
 
 .profile-role {
-  color: var(--global-theme-color);
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+}
+
+.profile-email,
+.profile-links {
+  font-size: 0.9375rem;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 8px 0 20px;
+}
+
+.profile-menu {
+  border-top: 1px solid var(--global-divider-color);
+  padding-top: 12px;
+}
+
+.profile-menu .nav-link {
+  width: fit-content;
+  padding: 4px 0;
   font-size: 1rem;
   font-weight: 550;
-  margin-bottom: 18px;
+  color: var(--global-text-color);
+}
+
+.profile-menu .nav-link:hover {
+  color: var(--global-theme-color);
+  text-decoration: underline;
+}
+
+.profile-menu .nav-tools {
+  border: 0;
+  padding: 0;
+  margin: 8px 0 0 -10px;
+}
+
+.home-content {
+  display: grid;
+  gap: 30px;
+  min-width: 0;
+}
+
+.home-content h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.bio h2 {
+  margin-bottom: 14px;
 }
 
 .bio p {
-  max-width: 57ch;
   margin: 0;
 }
 
@@ -140,54 +218,10 @@ input:focus-visible {
   text-decoration-thickness: 1px;
 }
 
-.profile-portrait img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center 40%;
-  border-radius: 8px;
-}
-
-.profile-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  margin-top: 20px;
-  font-size: 0.9375rem;
-  font-weight: 550;
-}
-
-.profile-links a {
-  padding: 6px 0;
-}
-
-.profile-links .profile-email {
-  color: var(--global-bg-color);
-  background: var(--global-theme-color);
-  border-radius: 5px;
-  padding: 7px 14px;
-}
-
-.profile-links .profile-email:hover {
-  background: var(--global-hover-color);
-  text-decoration: none;
-}
-
 .selected-research,
 .recent-news {
+  padding-top: 24px;
   border-top: 1px solid var(--global-divider-color);
-  padding: 30px 0;
-}
-
-.recent-news h2,
-.section-heading h2 {
-  margin: 0;
-  font-size: 1.55rem;
-  font-weight: 600;
-  letter-spacing: -0.035em;
 }
 
 .news-list {
@@ -238,8 +272,7 @@ input:focus-visible {
 
 .featured-papers ol {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: 22px;
   list-style: none;
   padding: 0;
   margin: 22px 0 0;
@@ -252,7 +285,7 @@ input:focus-visible {
 }
 
 .featured-paper .publication-image {
-  flex: 0 0 clamp(100px, 11vw, 148px);
+  flex: 0 0 128px;
 }
 
 .featured-paper img {
@@ -585,13 +618,50 @@ footer.sticky-bottom .container {
 }
 
 @media (max-width: 767px) {
-  .featured-papers ol {
+  .academic-home {
     grid-template-columns: 1fr;
+    gap: 26px;
   }
 
-  .profile-intro {
-    grid-template-columns: minmax(0, 1fr) 150px;
-    gap: 28px;
+  .profile-identity {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+  }
+
+  .profile-identity h1 {
+    margin-top: 0;
+    font-size: 1.75rem;
+  }
+
+  .profile-role {
+    margin-bottom: 3px;
+    line-height: 1.35;
+  }
+
+  .profile-links {
+    margin: 12px 0;
+  }
+
+  .profile-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 12px;
+    border-bottom: 1px solid var(--global-divider-color);
+    padding: 3px 0;
+  }
+
+  .profile-menu .navbar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .profile-menu .nav-tools {
+    margin: 0;
   }
 
   .publication-row {
@@ -642,45 +712,6 @@ footer.sticky-bottom .container {
     padding: 0;
   }
 
-  .profile-intro {
-    grid-template-columns: minmax(0, 1fr) 86px;
-    grid-template-areas: "name portrait" "role portrait" "bio bio" "links links";
-    gap: 0 12px;
-    padding: 0 0 32px;
-  }
-
-  .profile-copy {
-    display: contents;
-  }
-
-  .profile-intro h1 {
-    grid-area: name;
-    align-self: end;
-    font-size: clamp(2.1rem, 9vw, 2.75rem);
-    margin-bottom: 5px;
-  }
-
-  .profile-role {
-    grid-area: role;
-    align-self: start;
-    font-size: 0.9375rem;
-    line-height: 1.4;
-    margin: 0;
-  }
-
-  .bio {
-    grid-area: bio;
-    margin-top: 20px;
-  }
-
-  .profile-links {
-    grid-area: links;
-  }
-
-  .profile-portrait {
-    grid-area: portrait;
-  }
-
   .featured-paper .publication-image {
     flex-basis: 88px;
     max-width: 88px;
@@ -727,10 +758,6 @@ footer.sticky-bottom .container {
 
   .publications ol.bibliography > li {
     padding: 26px 0;
-  }
-
-  .profile-links {
-    gap: 6px 12px;
   }
 
   .publications ol.bibliography li .links a.btn {
